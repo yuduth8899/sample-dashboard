@@ -13,19 +13,32 @@ const iconMap = {
   invoices: InboxIcon,
 };
 
-export default async function Cards() {
+export type CardDataProps = {
+  numberOfCustomers: number
+  numberOfInvoices: number
+  totalPaidInvoices: string
+  totalPendingInvoices: string
+}
+
+export default async function Cards(props: CardDataProps) {
+  const {
+    numberOfCustomers,
+    numberOfInvoices,
+    totalPaidInvoices,
+    totalPendingInvoices
+  } = props
   return (
     <>
       {/* NOTE: comment in this code when you get to this point in the course */}
 
-      {/* <Card title="Collected" value={totalPaidInvoices} type="collected" />
+      <Card title="Collected" value={totalPaidInvoices} type="collected" />
       <Card title="Pending" value={totalPendingInvoices} type="pending" />
       <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
       <Card
         title="Total Customers"
         value={numberOfCustomers}
         type="customers"
-      /> */}
+      />
     </>
   );
 }
